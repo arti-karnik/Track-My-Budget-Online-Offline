@@ -1,5 +1,6 @@
 let transactions = [];
 let myChart;
+console.log("in index.js");
 
 fetch("/api/transaction")
   .then(response => {
@@ -8,6 +9,7 @@ fetch("/api/transaction")
   .then(data => {
     // save db data on global variable
     transactions = data;
+    console.log(transactions);
 
     populateTotal();
     populateTable();
@@ -113,7 +115,6 @@ function sendTransaction(isAdding) {
   populateTotal();
   
   // also send to server
-  // also send to server
   fetch("/api/transaction", {
     method: "POST",
     body: JSON.stringify(transaction),
@@ -122,24 +123,27 @@ function sendTransaction(isAdding) {
       "Content-Type": "application/json"
     }
   })
-    .then(response => response.json())
-    .then(data => {
-      if (data.errors) {
-        errorEl.textContent = "Missing Information";
-      } else {
-        // clear form
-        nameEl.value = "";
-        amountEl.value = "";
-      }
-    })
-    .catch(err => {
-      // fetch failed, so save in indexed db
-      saveRecord(transaction);
-
+  .then(response => {    
+    return response.json();
+  })
+  .then(data => {
+    if (data.errors) {
+      errorEl.textContent = "Missing Information";
+    }
+    else {
       // clear form
       nameEl.value = "";
       amountEl.value = "";
-    });
+    }
+  })
+  .catch(err => {
+    // fetch failed, so save in indexed db
+    saveRecord(transaction);
+
+    // clear form
+    nameEl.value = "";
+    amountEl.value = "";
+  });
 }
 
 document.querySelector("#add-btn").onclick = function() {
@@ -149,8 +153,3 @@ document.querySelector("#add-btn").onclick = function() {
 document.querySelector("#sub-btn").onclick = function() {
   sendTransaction(false);
 };
-
-document.querySelector("#del-btn").addEventListener("click", function(event) {
-  event.preventDefault();
-  deletePending();
-});

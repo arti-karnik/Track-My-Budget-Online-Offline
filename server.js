@@ -9,6 +9,8 @@ const app = express();
 
 app.use(logger("dev"));
 
+
+
 app.use(compression());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -20,6 +22,9 @@ app.use(express.static("public"));
   useFindAndModify: false
 });*/
 
+// routes
+app.use(require("./routes/api"));
+
 mongoose.connect(
   process.env.MONGODB_URI || 'mongodb://localhost/budget',
   {
@@ -30,10 +35,7 @@ mongoose.connect(
   }
 );
 
-// routes
-app.use(require("./routes/api.js"));
-
-app.listen(process.env.PORT || 3010, function(){
+app.listen(process.env.PORT || 3011, function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
 

@@ -52,7 +52,7 @@ function checkDatabase() {
 }
 
 function deletePending() {
-  const transaction = db.transaction(["pending"], "readwrite");
+  const transaction = database.transaction(["pending"], "readwrite");
   const store = transaction.objectStore("pending");
   store.clear();
 }
