@@ -4,7 +4,9 @@ const openDB = indexedDB.open('budget', 1);
 openDB.onupgradeneeded = function(event) {
   const database = event.target.result;
   database.createObjectStore('pending', { autoIncrement: true });
-  //store.clear();
+  /*const transaction = database.transaction(['pending'], 'readwrite');
+  const store = transaction.objectStore("pending");
+  store.clear();*/
 };
 
 openDB.onsuccess = function(event) {
@@ -47,5 +49,11 @@ function checkDatabase() {
         });
     }
   };
+}
+
+function deletePending() {
+  const transaction = db.transaction(["pending"], "readwrite");
+  const store = transaction.objectStore("pending");
+  store.clear();
 }
 window.addEventListener('online', checkDatabase);
