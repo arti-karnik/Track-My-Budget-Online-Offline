@@ -51,9 +51,16 @@ function checkDatabase() {
   };
 }
 
+function savecurrentDatabase() {
+   // alert("offline ");
+}
+
 function deletePending() {
   const transaction = database.transaction(["pending"], "readwrite");
   const store = transaction.objectStore("pending");
   store.clear();
 }
+
+
 window.addEventListener('online', checkDatabase);
+window.addEventListener('offline', savecurrentDatabase);

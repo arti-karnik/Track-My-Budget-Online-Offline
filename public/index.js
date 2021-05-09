@@ -9,7 +9,6 @@ fetch("/api/transaction")
   .then(data => {
     // save db data on global variable
     transactions = data;
-    console.log(transactions);
 
     populateTotal();
     populateTable();
@@ -131,6 +130,7 @@ function sendTransaction(isAdding) {
       errorEl.textContent = "Missing Information";
     }
     else {
+      savecurrentDatabase(JSON.stringify(transaction));
       // clear form
       nameEl.value = "";
       amountEl.value = "";
@@ -145,7 +145,9 @@ function sendTransaction(isAdding) {
     amountEl.value = "";
   });
 }
-
+function savecurrentDatabase(record) { 
+  alert("went offline");
+}
 document.querySelector("#add-btn").onclick = function() {
   sendTransaction(true);
 };
@@ -153,3 +155,6 @@ document.querySelector("#add-btn").onclick = function() {
 document.querySelector("#sub-btn").onclick = function() {
   sendTransaction(false);
 };
+
+window.addEventListener('online',  checkDatabase);
+
