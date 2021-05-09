@@ -14,67 +14,56 @@
 
 
 ## Summary
- Build a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. Build this site completely from scratch and deploy it to Heroku. App will follow the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
+Add functionality to our existing Budget Tracker application to allow for offline access and functionality.
+
+The user will be able to add expenses and deposits to their budget with or without a connection. When entering transactions offline, they should populate the total when brought back online. 
+Offline Functionality:
+
+  * Enter deposits offline
+
+  * Enter expenses offline
+
+When brought back online:
+
+  * Offline entries should be added to tracker.
+
 
 ## Description
-As a developer who writes about tech, build a CMS-style blog site
-to publish articles, blog posts, and my thoughts and opinions
+Giving users a fast and easy way to track their money is important, but allowing them to access that information anytime is even more important. Having offline functionality is paramount to our applications success.
+GIVEN a user is on Budget App without an internet connection
+WHEN the user inputs a withdrawal or deposit
+THEN that will be shown on the page, and added to their transaction history when their connection is back online.
 
 ## Pre-requisite
 Install NodeJS 
 
 ## Demo
-![](./public/images/myGif.gif?raw=true)
-<img src="./public/images/SS1.png">
-<img src="./public/images/SS2.png">
-<img src="./public/images/SS3.png">
-<img src="./public/images/SS4.png">
+![](./public/assets/images/myGif.gif?raw=true)
+<img src="./public/assets/images/SS2.png">
 
 ## Technologyused:
 <ul>
     <li> 
-    <a href="https://sequelize.org/" target="_blank">Sequilize  <a>
-    <br>
+    <a href="https://developers.google.com/web/fundamentals/primers/service-workers" target="_blank">Service worker <a>
+    <li> 
+    <a href="https://developer.mozilla.org/en-US/docs/Web/Manifest" target="_blank"> Web App Manifest<a>
     </li>
     <li> 
-    <a href="https://nodejs.org/en/docs/" target="_blank">NodeJS <a>
-    <li> 
-    <a href="https://expressjs.com/en/guide/routing.html" target="_blank">Express.js<a>
-    </li>
-    <li> 
-    <a href="https://dev.mysql.com/doc/" target="_blank">mySQL </a>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Using_the_application_cache" target="_blank">Saving in Cache </a>
     </li>
      <li> 
-    <a href="https://handlebarsjs.com/" target="_blank">Handlebars </a>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API" target="_blank">IndexDB storage </a>
     </li>
 </ul>
 
 ## Install:
 <strong>Code installation:</strong> <br>
 $ cd [path_to_save_codebase] <br>
-$ git clone https://github.com/arti-karnik/Technology-StopAndBlog<br>
-
-Add env file: <br>
-Go to Folder, add new file name it as .env <br>
-DB_USER='<your mysql username>' <br>
-DB_PASSWORD='<your mysql password>' <br>
-DB_NAME='blogDB' <br>
-
-Installing Database: <br>
-1. Via Terminal: <br>
-msql -u root -p  <press enter> <br>
-DROP DATABASE IF EXISTS blogdb; <press enter>  <br>
-CREATE DATABASE blogdb; <br> <press enter> <br>
-
-2. Using mysql work bence: <br>
-Open sql work bence <br>
-DROP DATABASE IF EXISTS blogdb;
-CREATE DATABASE blogdb; <br>
+$ git clone https://github.com/arti-karnik/Track-My-Budget-Online-Offline<br>
 
 <strong> Run the application: </strong> <br>
 Open Terminal <br>
 $ npm install <br>
-$ npm run seed <br>
 $ npm start <br>
  
 ## Contributor
@@ -85,11 +74,11 @@ https://github.com/arti-karnik
 https://arti-karnik.github.io/MyPortfolioPage/
 
 ## Codebase
-https://github.com/arti-karnik/Technology-StopAndBlog
+https://github.com/arti-karnik/Track-My-Budget-Online-Offline
 
 
 ## Application Walk-through
-<a href="https://arcane-inlet-16342.herokuapp.com/" target="_blank"> Click here for Application Live url </a>
+<a href="https://fathomless-escarpment-54113.herokuapp.com/" target="_blank"> Click here for Application Live url </a>
 
 
 
