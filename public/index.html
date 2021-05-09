@@ -6,13 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="theme-color" content="#317EFB">
   <link rel="shortcut icon" href="icons/icon-192x192.png" type="image/x-icon">
-
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./assets/css/styles.css">
-
   <title>Budget Tracker</title>
   <link rel="manifest" href="manifest.webmanifest">
-
 </head>
 <body>
 
@@ -26,7 +23,6 @@
       <input type="number" min="0" id="t-amount" placeholder="Transaction amount" />
       <button id="add-btn"><i class="fa fa-plus buttons"></i> Add Funds</button>
       <button id="sub-btn"><i class="fa fa-minus"></i> Subtract Funds</button>
-      <button id="del-btn"><i class="fa fa-trash"></i> Delete </button>
       <p class="error"></p>
     </div>
 
@@ -41,7 +37,6 @@
         </tbody>
       </table>
     </div>
-    
     <canvas id="myChart"></canvas>
   </div>
 
@@ -51,7 +46,8 @@
   <script>
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("service-worker.js").then(reg => {
+        navigator.serviceWorker.register("service-worker.js")
+        .then(reg => {
           console.log("We found your service worker file!", reg);
         });
       });
