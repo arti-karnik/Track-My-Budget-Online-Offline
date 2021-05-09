@@ -52,7 +52,6 @@ function checkDatabase() {
 }
 
 function savecurrentDatabase() {
-   // alert("offline ");
 }
 
 function deletePending() {

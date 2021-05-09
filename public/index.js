@@ -130,7 +130,6 @@ function sendTransaction(isAdding) {
       errorEl.textContent = "Missing Information";
     }
     else {
-      savecurrentDatabase(JSON.stringify(transaction));
       // clear form
       nameEl.value = "";
       amountEl.value = "";
@@ -145,9 +144,7 @@ function sendTransaction(isAdding) {
     amountEl.value = "";
   });
 }
-function savecurrentDatabase(record) { 
-  alert("went offline");
-}
+
 document.querySelector("#add-btn").onclick = function() {
   sendTransaction(true);
 };
